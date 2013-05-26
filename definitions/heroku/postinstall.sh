@@ -91,15 +91,8 @@ su -c '/usr/bin/pg_ctl start -l /var/pgsql/data/log/logfile -D /var/pgsql/data' 
 sed -i -e 's/exit 0//g' /etc/rc.local
 echo "su -c '/usr/bin/pg_ctl start -l /var/pgsql/data/log/logfile -D /var/pgsql/data' postgres" >> /etc/rc.local
 
-# Install NodeJs for a JavaScript runtime
-git clone https://github.com/joyent/node.git
-cd node
-git checkout v0.4.7
-./configure --prefix=/usr
-make
-make install
-cd ..
-rm -rf node*
+# Install OpenJDK 1.7
+apt-get install openjdk-7-jdk
 
 # Add /opt/ruby/bin to the global path as the last resort so
 # Ruby, RubyGems, and Chef/Puppet are visible
