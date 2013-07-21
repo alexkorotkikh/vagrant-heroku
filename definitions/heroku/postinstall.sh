@@ -94,6 +94,14 @@ echo "su -c '/usr/bin/pg_ctl start -l /var/pgsql/data/log/logfile -D /var/pgsql/
 # Install OpenJDK 1.7
 apt-get install openjdk-7-jdk
 
+# Install MongoDB
+apt-get install mongodb-10gen=2.2.3
+
+# Install RabbitMQ
+echo 'deb http://www.rabbitmq.com/debian/ testing main' >> /etc/apt/sources.list
+apt-get update
+apt-get install rabbitmq-server
+
 # Add /opt/ruby/bin to the global path as the last resort so
 # Ruby, RubyGems, and Chef/Puppet are visible
 echo 'PATH=$PATH:/opt/ruby/bin/'> /etc/profile.d/vagrantruby.sh
